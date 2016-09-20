@@ -1,3 +1,8 @@
-﻿  Ball.cpp
-  PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\PongDemo\Debug\PongDemo.exe
-  PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\PongDemo\Debug\PongDemo.pdb (Full PDB)
+﻿  Source.cpp
+  Playfield.cpp
+  Paddle.cpp
+  GameObject.cpp
+  Ball.cpp
+  Generating Code...
+  PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\grupp 11\grupp-11\PongDemo\Debug\PongDemo.exe
+  PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\grupp 11\grupp-11\PongDemo\Debug\PongDemo.pdb (Full PDB)
