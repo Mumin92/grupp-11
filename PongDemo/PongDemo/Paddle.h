@@ -18,9 +18,9 @@ public:
 	const int HEIGHT = 64;
 
 	Paddle();
+	Paddle(const Playfield& playfield, Side side_);
 	~Paddle();
 	
-	Paddle(const Playfield& playfield, Side side_);
 	Side GetSide();
 
 	void Update() override;
