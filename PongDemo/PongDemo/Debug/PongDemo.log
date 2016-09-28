@@ -1,7 +1,3 @@
-﻿  Source.cpp
-  Playfield.cpp
-  GameState.cpp
-  GameObject.cpp
-  Generating Code...
+﻿  PongGame.cpp
   PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\grupp 11\grupp-11\PongDemo\Debug\PongDemo.exe
   PongDemo.vcxproj -> C:\Users\Erik\Documents\Visual Studio 2015\CPP\grupp 11\grupp-11\PongDemo\Debug\PongDemo.pdb (Full PDB)

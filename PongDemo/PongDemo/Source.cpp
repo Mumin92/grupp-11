@@ -1,9 +1,17 @@
 #include <iostream>
-#include "GameState.h"
+#include "PongGame.h"
 
 int main(int argc, char* argv[]) {
-	GameState game;
-	while (game.Update());
+	try {
+		PongGame game;
+		game.run();
+	}
+	catch (const std::runtime_error& error) {
+		std::cerr << error.what() << std::endl;
+	}
+	catch (...) {
+		std::cerr << "You goofed up!\n";
+	}
 
 	return 0;
 }

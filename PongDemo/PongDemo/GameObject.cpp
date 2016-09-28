@@ -15,6 +15,6 @@ SDL_Rect GameObject::GetRect() const {
 	return rect;
 }
 
-void GameObject::Update() {
+void GameObject::update() {
 
 }

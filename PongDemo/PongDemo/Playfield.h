@@ -7,10 +7,8 @@ public:
 	Playfield();
 	~Playfield();
 
-	enum Side { left, right };
-
-	const int WIDTH = 640;
-	const int HEIGHT = 360;
-	const int MARGIN = 8;
+	static const int WIDTH = 640;
+	static const int HEIGHT = 360;
+	static const int MARGIN = 8;
 };
 

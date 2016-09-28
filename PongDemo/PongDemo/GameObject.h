@@ -11,6 +11,6 @@ public:
 	enum Side { left, right };
 	SDL_Rect GetRect() const;
 
-	virtual void Update();
+	virtual void update();
 };
 

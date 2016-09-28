@@ -5,18 +5,18 @@
 
 class Ball : public GameObject
 {
-	const int SPEED = 4;
-	const int SIZE = 12;
+	static const int SPEED = 4;
+	static const int SIZE = 12;
 	int velx;
 	double vely;
 	double posy;
 public:
 	Ball();
-	Ball(const Playfield& playfield, GameObject::Side side);
+	Ball(GameObject::Side side);
 	~Ball();
 
-	void Update() override;
+	void update() override;
 	void collide(Side side_, const Paddle& paddle);
-	void checkBounds(const Playfield& playfield);
+	void checkBounds();
 };
 

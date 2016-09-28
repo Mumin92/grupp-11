@@ -8,16 +8,16 @@ Paddle::Paddle()
 	rect = { 0, 0,
 		WIDTH, HEIGHT };
 }
-Paddle::Paddle(const Playfield& playfield, Side side_) {
-	rect = { 0, (playfield.HEIGHT / 2) - (HEIGHT / 2),
+Paddle::Paddle(Side side_) {
+	rect = { 0, (Playfield::HEIGHT / 2) - (HEIGHT / 2),
 		WIDTH, HEIGHT};
 	
 	side = side_;
 
 	if (side == Side::left)
-		rect.x = playfield.MARGIN;
+		rect.x = Playfield::MARGIN;
 	else
-		rect.x = playfield.WIDTH - WIDTH - playfield.MARGIN;
+		rect.x = Playfield::WIDTH - WIDTH - Playfield::MARGIN;
 
 	pressingUp = false;
 	pressingDown = false;
@@ -32,18 +32,18 @@ GameObject::Side Paddle::GetSide() {
 	return side;
 }
 
-void Paddle::Update() {
+void Paddle::update() {
 	if (pressingUp)
 		rect.y -= SPEED;
 	if (pressingDown)
 		rect.y += SPEED;
 }
-void Paddle::checkBounds(const Playfield& playfield) {
-	if (rect.y < playfield.MARGIN)
-		rect.y = playfield.MARGIN;
+void Paddle::checkBounds() {
+	if (rect.y < Playfield::MARGIN)
+		rect.y = Playfield::MARGIN;
 
-	if (rect.y + rect.h > playfield.HEIGHT - playfield.MARGIN)
-		rect.y = playfield.HEIGHT - playfield.MARGIN - rect.h;
+	if (rect.y + rect.h > Playfield::HEIGHT - Playfield::MARGIN)
+		rect.y = Playfield::HEIGHT - Playfield::MARGIN - rect.h;
 }
 void Paddle::pressUp(bool b) {
 	pressingUp = b;

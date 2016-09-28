@@ -148,18 +148,24 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="FPS_Helper.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="PongGame.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Playfield.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SDL_System.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="FPS_Helper.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameState.h" />
+    <ClInclude Include="PongGame.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Playfield.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SDL_System.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

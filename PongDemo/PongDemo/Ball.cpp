@@ -6,15 +6,15 @@
 Ball::Ball()
 {
 }
-Ball::Ball(const Playfield& playfield, GameObject::Side side)
+Ball::Ball(GameObject::Side side)
 {
-	if (side == Playfield::Side::left) {
+	if (side == GameObject::Side::left) {
 		velx = SPEED;
-		rect = {0 - SIZE, playfield.HEIGHT / 2 - SIZE / 2,
+		rect = {0 - SIZE, Playfield::HEIGHT / 2 - SIZE / 2,
 				SIZE, SIZE};
 	}
 	else {
-		rect = { playfield.WIDTH, playfield.HEIGHT / 2 - SIZE / 2,
+		rect = { Playfield::WIDTH, Playfield::HEIGHT / 2 - SIZE / 2,
 			SIZE, SIZE };
 	}
 	vely = 0.0;
@@ -26,7 +26,7 @@ Ball::~Ball()
 {
 }
 
-void Ball::Update() {
+void Ball::update() {
 	rect.x += velx;
 
 	posy += vely;
@@ -44,19 +44,19 @@ void Ball::collide(Side side_, const Paddle& paddle) {
 
 	vely = (double)(bally - pady) / (padrect.h / 4.0);
 }
-void Ball::checkBounds(const Playfield& playfield) {
-	if (rect.y < playfield.MARGIN) {
-		posy = playfield.MARGIN;
+void Ball::checkBounds() {
+	if (rect.y < Playfield::MARGIN) {
+		posy = Playfield::MARGIN;
 		vely *= -1.0;
 	}
-	if (rect.y > playfield.HEIGHT - playfield.MARGIN - rect.h) {
-		posy = playfield.HEIGHT - playfield.MARGIN - rect.h;
+	if (rect.y > Playfield::HEIGHT - Playfield::MARGIN - rect.h) {
+		posy = Playfield::HEIGHT - Playfield::MARGIN - rect.h;
 		vely *= -1.0;
 	}
 
 	//remove for points
-	if (rect.x > playfield.WIDTH)
-		rect.x -= playfield.WIDTH;
+	if (rect.x > Playfield::WIDTH)
+		rect.x -= Playfield::WIDTH;
 	if (rect.x < 0)
-		rect.x += playfield.WIDTH;
+		rect.x += Playfield::WIDTH;
 }
