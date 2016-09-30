@@ -13,6 +13,8 @@ PongGame::~PongGame()
 }
 
 void PongGame::run(){
+	serveBall(GameObject::Side::left);
+
 	while (_isRunning)
 		update();
 }
@@ -26,6 +28,8 @@ void PongGame::render() {
 	_renderer.fillRect(_rightPaddle.GetRect());
 	_renderer.fillRect(_ball.GetRect());
 
+	_renderer.drawTexture(_score.getPointer(), _score.getRect());
+
 	_renderer.present();
 }
 bool PongGame::update() {
@@ -34,6 +38,7 @@ bool PongGame::update() {
 	updatePaddles();
 	checkCollision();
 	checkBoundaries();
+	checkForGoal();
 	render();
 
 	fps.Delay(60);
@@ -113,4 +118,19 @@ void PongGame::checkCollision() {
 
 	if (SDL_IntersectRect(&ballrect, &_rightPaddle.GetRect(), &result))
 		_ball.collide(GameObject::Side::right, _rightPaddle);
+}
+void PongGame::serveBall(GameObject::Side side) {
+	_score.updateScore(_font.getPointer(), _renderer.getPointer(), leftScore, rightScore);
+
+	_ball = Ball(side);
+}
+void PongGame::checkForGoal() {
+	if (_ball.GetRect().x < -Ball::SIZE) {
+		rightScore++;
+		serveBall(GameObject::Side::right);
+	}
+	if (_ball.GetRect().x > Playfield::WIDTH + Ball::SIZE) {
+		leftScore++;
+		serveBall(GameObject::Side::left);
+	}
 }

@@ -19,5 +19,8 @@ public:
 	void clear();
 	void present();
 	void fillRect(const SDL_Rect& rect);
+	void drawTexture(SDL_Texture* texture, const SDL_Rect& rect);
+
+	SDL_Renderer* getPointer();
 };
 

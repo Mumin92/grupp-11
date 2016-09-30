@@ -27,3 +27,10 @@ void Renderer::present() {
 void Renderer::fillRect(const SDL_Rect& rect) {
 	SDL_RenderFillRect(_ptr, &rect);
 }
+void Renderer::drawTexture(SDL_Texture* texture, const SDL_Rect& rect) {
+	SDL_RenderCopy(_ptr, texture, NULL, &rect);
+}
+
+SDL_Renderer* Renderer::getPointer() {
+	return _ptr;
+}

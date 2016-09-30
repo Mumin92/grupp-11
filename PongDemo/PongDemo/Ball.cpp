@@ -14,7 +14,8 @@ Ball::Ball(GameObject::Side side)
 				SIZE, SIZE};
 	}
 	else {
-		rect = { Playfield::WIDTH, Playfield::HEIGHT / 2 - SIZE / 2,
+		velx = -SPEED;
+		rect = { Playfield::WIDTH + SIZE, Playfield::HEIGHT / 2 - SIZE / 2,
 			SIZE, SIZE };
 	}
 	vely = 0.0;
@@ -32,8 +33,12 @@ void Ball::update() {
 	posy += vely;
 	rect.y = (int)posy;
 }
-void Ball::collide(Side side_, const Paddle& paddle) {
-	if (side_ == Side::left)
+void Ball::collide(Side side, const Paddle& paddle) {
+	//the ball cannot collide with the serving paddle
+	if ((velx > 0 && side == Side::left) || (velx < 0 && side == Side::right))
+		return;
+
+	if (side == Side::left)
 		velx = SPEED;
 	else
 		velx = -SPEED;
@@ -53,10 +58,4 @@ void Ball::checkBounds() {
 		posy = Playfield::HEIGHT - Playfield::MARGIN - rect.h;
 		vely *= -1.0;
 	}
-
-	//remove for points
-	if (rect.x > Playfield::WIDTH)
-		rect.x -= Playfield::WIDTH;
-	if (rect.x < 0)
-		rect.x += Playfield::WIDTH;
 }

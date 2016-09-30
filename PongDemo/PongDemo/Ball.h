@@ -6,7 +6,7 @@
 class Ball : public GameObject
 {
 	static const int SPEED = 4;
-	static const int SIZE = 12;
+	
 	int velx;
 	double vely;
 	double posy;
@@ -15,8 +15,10 @@ public:
 	Ball(GameObject::Side side);
 	~Ball();
 
+	static const int SIZE = 12;
+
 	void update() override;
-	void collide(Side side_, const Paddle& paddle);
+	void collide(Side side, const Paddle& paddle);
 	void checkBounds();
 };
 
