@@ -155,7 +155,7 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SDL_System.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,7 +168,7 @@
     <ClInclude Include="Playfield.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SDL_System.h" />
-    <ClInclude Include="Text.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

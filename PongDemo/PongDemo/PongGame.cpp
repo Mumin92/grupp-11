@@ -3,7 +3,7 @@
 
 
 PongGame::PongGame(){
-	
+
 }
 
 
@@ -32,7 +32,7 @@ void PongGame::render() {
 
 	_renderer.present();
 }
-bool PongGame::update() {
+void PongGame::update() {
 	readInput();
 	_ball.update();
 	updatePaddles();
@@ -42,8 +42,6 @@ bool PongGame::update() {
 	render();
 
 	fps.Delay(60);
-
-	return _isRunning;
 }
 
 void PongGame::readInput() {
@@ -120,17 +118,16 @@ void PongGame::checkCollision() {
 		_ball.collide(GameObject::Side::right, _rightPaddle);
 }
 void PongGame::serveBall(GameObject::Side side) {
-	_score.updateScore(_font.getPointer(), _renderer.getPointer(), leftScore, rightScore);
-
+	_score.updateScore(_font.getPointer(), _renderer.getPointer());
 	_ball = Ball(side);
 }
 void PongGame::checkForGoal() {
 	if (_ball.GetRect().x < -Ball::SIZE) {
-		rightScore++;
+		_score.rightGoal();
 		serveBall(GameObject::Side::right);
 	}
 	if (_ball.GetRect().x > Playfield::WIDTH + Ball::SIZE) {
-		leftScore++;
+		_score.leftGoal();
 		serveBall(GameObject::Side::left);
 	}
 }
