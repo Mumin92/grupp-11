@@ -1,0 +1,13 @@
+﻿  ArkanoidGame.cpp
+  Generating Code...
+  Compiling...
+  Paddle.cpp
+c:\users\alexa\documents\visual studio 2015\projects\arkanoid\arkanoid\paddle.cpp(13): warning C4305: '*=': truncation from 'double' to 'float'
+  Entity.cpp
+  Brick.cpp
+  Ball.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Main.cpp
+  Arkanoid.vcxproj -> C:\Users\alexa\documents\visual studio 2015\Projects\Arkanoid\Debug\Arkanoid.exe
+  Arkanoid.vcxproj -> C:\Users\alexa\documents\visual studio 2015\Projects\Arkanoid\Debug\Arkanoid.pdb (Full PDB)
