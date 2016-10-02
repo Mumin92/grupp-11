@@ -13,6 +13,7 @@ class InputManager
 	void onMouseButtonDown(SDL_MouseButtonEvent& e);
 
 	const Uint8* _keyStates;
+	bool _clickedCloseButton;
 
 public:
 	InputManager();
@@ -20,5 +21,6 @@ public:
 
 	void update();
 	bool isKeyDown(const SDL_Scancode key);
+	bool isQuitRequested();
 };
 

@@ -3,7 +3,7 @@
 #include "SDLSystem.h"
 
 
-InputManager::InputManager() : _keyStates(SDL_GetKeyboardState(nullptr))
+InputManager::InputManager() : _keyStates(SDL_GetKeyboardState(nullptr)), _clickedCloseButton(false)
 {
 	if (!_keyStates) {
 		throw std::runtime_error(SDL_GetError());
@@ -20,7 +20,7 @@ void InputManager::update()
 	SDL_Event e;
 	while (SDL_PollEvent(&e)) {
 		if (e.type == SDL_QUIT) {
-			
+			_clickedCloseButton = true;
 		}
 	}
 }
@@ -28,6 +28,11 @@ void InputManager::update()
 bool InputManager::isKeyDown(const SDL_Scancode key)
 {
 	return (_keyStates[key] == 1);
+}
+
+bool InputManager::isQuitRequested()
+{
+	return _clickedCloseButton || isKeyDown(SDL_SCANCODE_ESCAPE);
 }
 
 void InputManager::onKeyDown(const SDL_KeyboardEvent & e)
